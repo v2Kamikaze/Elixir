@@ -8,7 +8,7 @@ defmodule Ping do
       {pid, :pong} ->
         send(pid, {self(), :ping})
         IO.puts("Recebi	um	Pong")
-        :timer.sleep(1000)
+        Process.sleep(1000)
     end
 
     wait()
@@ -25,7 +25,7 @@ defmodule Pong do
       {pid, :ping} ->
         send(pid, {self(), :pong})
         IO.puts("Recebi	um	Ping")
-        :timer.sleep(1000)
+        Process.sleep(1000)
     end
 
     wait()
